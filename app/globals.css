@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#F8FAFC] text-slate-900 antialiased selection:bg-purple-600 selection:text-white;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Prevent Korean words from splitting mid-word */
+  h1, h2, h3, h4, p, span, a, label {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Light Theme Utilities */
+.text-gradient-purple-indigo {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600;
+}
