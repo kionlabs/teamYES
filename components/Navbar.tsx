@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Sparkles, ChevronRight, Menu, X, MapPin, Globe } from 'lucide-react';
 
 export default function Navbar() {
@@ -12,43 +13,45 @@ export default function Navbar() {
     const formElement = document.getElementById('lead-form');
     if (formElement) {
       formElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/#lead-form';
     }
   };
 
   const navLinks = [
-    { name: '지역별 센터', href: '#centers', icon: MapPin },
-    { name: '언어 프로그램', href: '#language', icon: Globe },
+    { name: '지역별 센터', href: '/#centers', icon: MapPin },
+    { name: '언어 프로그램', href: '/language-programs', icon: Globe },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md transition-all">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Left: Brand Logo */}
-        <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 text-white shadow-md shadow-purple-500/20">
+        {/* Left: Brand Logo (Link to Home) */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 text-white shadow-md shadow-purple-500/20 group-hover:scale-105 transition-transform">
             <Sparkles className="h-5 w-5 text-white" />
           </div>
           <div className="flex items-center gap-2.5">
-            <span className="text-xl font-extrabold tracking-tight text-slate-900">
+            <span className="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-purple-600 transition-colors">
               YESJIGU
             </span>
             <span className="hidden sm:inline-flex items-center rounded-full bg-purple-50 border border-purple-200 px-2.5 py-0.5 text-xs font-semibold text-purple-700">
               에듀테크 플랫폼
             </span>
           </div>
-        </div>
+        </Link>
 
         {/* Right: Desktop Navigation & CTA Button */}
         <div className="hidden md:flex items-center gap-6">
           <nav className="flex items-center gap-6">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 className="text-slate-600 hover:text-purple-600 font-medium text-sm transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -94,7 +97,7 @@ export default function Navbar() {
             {navLinks.map((link) => {
               const Icon = link.icon;
               return (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
@@ -102,7 +105,7 @@ export default function Navbar() {
                 >
                   <Icon className="h-4 w-4 text-purple-600" />
                   <span>{link.name}</span>
-                </a>
+                </Link>
               );
             })}
             <div className="pt-2 border-t border-slate-100">
