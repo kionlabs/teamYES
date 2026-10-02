@@ -19,6 +19,9 @@ export default function Footer() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">
                 잇다
               </span>
+              <span className="text-purple-600 font-bold text-xs tracking-normal mx-0.5">
+                (It-da)
+              </span>
               <span className="text-slate-900">
                 과외
               </span>
@@ -27,7 +30,7 @@ export default function Footer() {
 
           {/* Copyright Notice */}
           <div className="text-center text-xs text-slate-500 sm:text-right">
-            <p>© {currentYear} 잇다과외 &amp; KION Labs. All rights reserved.</p>
+            <p>© {currentYear} 잇다(It-da)과외 &amp; KION Labs. All rights reserved.</p>
             <p className="mt-1 text-slate-400">
               AI 기반 신입 코치 &amp; 학생 1:1 맞춤 매칭 서비스
             </p>
